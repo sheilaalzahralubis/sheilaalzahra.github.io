@@ -105,3 +105,11 @@ a.tbl-biru:hover {
   background: #fc5185;  
   text-decoration: none;
 }
+
+tabel, td {
+    border: 1px solid #FFFF;
+    border-collapse: collapse;
+}
+th {
+    background-color: #96D4D4;
+}
