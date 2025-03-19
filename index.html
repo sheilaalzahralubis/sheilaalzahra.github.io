@@ -9,6 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
+    <!-- Tombol Mode Gelap/Terang -->
+    <button id="toggle-theme">Mode Gelap</button>
+    
     <!-- Navbar -->
     <nav>
         <div class="wrapper">
@@ -18,7 +21,7 @@
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="TentangSaya.html">Tentang Saya</a></li>
                     <li><a href="KontakSaya.html">Kontak Saya</a></li>
-                    <li><a href="Koleksi.html">Koleksi</a></li> <!-- Pastikan Koleksi.html ada -->
+                    <li><a href="Koleksi.html">Koleksi</a></li>
                 </ul>
             </div>
         </div>
@@ -26,37 +29,33 @@
 
     <!-- Konten Utama -->
     <div class="wrapper">
-        <!-- Untuk home -->
         <section id="home">
-            <!-- Gambar dengan animasi -->
             <img src="https://img.freepik.com/free-vector/online-library-concept-with-reading-people-electronic-devices-book-shelves-3d-isometric_1284-31703.jpg?uid=R192201751&ga=GA1.1.2109572445.1741589569&semt=ais_hybrid" alt="Library Image" class="library-image"/>
-            
-            <!-- Kontainer untuk teks -->
             <div class="kolom">
-                <p class="deskripsi">Hallo, Selamat Datang di Perpustakaan Digital Sheila Lubis!</p>
+                <p class="deskripsi" id="typing-text"></p>
                 <h2>Kerjasama Dengan <a href="https://library.usu.ac.id/" target="_blank">Perpustakaan USU</a></h2>
                 <p class="quote">"Perpustakaan digital membuka gerbang pengetahuan tanpa batas—cukup satu klik untuk menjelajahi dunia ilmu, kapan saja dan di mana saja."</p>
             </div>
         </section>
     </div>
 
-    <!-- Tambahkan JavaScript untuk animasi -->
+    <!-- JavaScript -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Animasi untuk gambar
             anime({
                 targets: '.library-image',
-                translateY: [-100, 0], // Gambar bergerak dari atas ke posisi normal
-                opacity: [0, 1], // Memudar dari transparan ke terlihat
-                duration: 1500, // Durasi animasi dalam milidetik
-                easing: 'easeOutExpo' // Jenis easing animasi
+                translateY: [-100, 0],
+                opacity: [0, 1],
+                duration: 1500,
+                easing: 'easeOutExpo'
             });
 
             // Animasi untuk teks deskripsi
             anime({
                 targets: '.deskripsi',
-                translateY: [50, 0], // Teks bergerak dari bawah ke posisi normal
-                opacity: [0, 1], // Memudar dari transparan ke terlihat
+                translateY: [50, 0],
+                opacity: [0, 1],
                 duration: 1200,
                 easing: 'easeOutExpo'
             });
@@ -70,7 +69,64 @@
                 easing: 'easeOutExpo'
             });
         });
+
+        // Mode Gelap dan Terang
+        const themeButton = document.getElementById("toggle-theme");
+        themeButton.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            themeButton.textContent = document.body.classList.contains("dark-mode") ? "Mode Terang" : "Mode Gelap";
+        });
+        
+        // Efek Ketikan Otomatis
+        const text = "Hallo, Selamat Datang di Perpustakaan Digital Sheila Lubis!";
+        let index = 0;
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+
+        // Animasi Hover Menu
+        document.querySelectorAll(".menu ul li a").forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                anime({
+                    targets: link,
+                    scale: 1.1,
+                    duration: 300,
+                    easing: "easeInOutQuad"
+                });
+            });
+            link.addEventListener("mouseleave", () => {
+                anime({
+                    targets: link,
+                    scale: 1,
+                    duration: 300,
+                    easing: "easeInOutQuad"
+                });
+            });
+        });
     </script>
 
+    <!-- CSS Tambahan -->
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        #toggle-theme {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </body>
 </html>
