@@ -1,66 +1,103 @@
-/* style.css */
-nav {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+* {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px; 
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', serif;
+}
+
+.wrapper {
+    width: 1100px;
+    margin: auto;
+}
+
+.logo a {
+    font-size: 50px;
+    font-weight: 800;
+    float: left;
+    font-family: fantasy;
+    color: #205781;
 }
 
 .menu {
-  list-style: none;
-  display: flex;
+    float: right;
 }
 
-.menu li {
-  margin-left: 20px;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Hamburger Menu (untuk mobile) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger span {
-  height: 2px;
-  width: 25px;
-  background-color: white;
-  margin-bottom: 4px;
-  display: block;
-}
-
-/* Media Query untuk tampilan mobile */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #333;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .menu li {
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .hamburger {
+nav {
+    width: 100%; /* Perbaiki dari 'width;' */
     display: flex;
-  }
-
-  .menu.active {
-    display: flex;
-  }
+    line-height: 80px;
+    position: sticky;
+    top: 0;
+    background: #F6F8D5; /* Perbaiki dari 'bacground' */
+    z-index: 1;
+    border-bottom: 1px solid #205781;
 }
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li { 
+   float: left;
+}
+
+nav ul li a {
+   color: black; /* Tambahkan titik koma */
+   font-weight: bold;
+   text-align: center;
+   padding: 0px 16px; /* Perbaiki padding */
+}
+
+nav ul li a:hover {
+   text-decoration: underline; 
+}
+
+section {
+   margin-bottom: 50px; /* Perbaiki dari 'margin-buttom' */
+}
+
+.kolom {
+   margin-top: 50px; /* Perbaiki dari 'margin top' */
+   margin-bottom: 50px;
+}
+
+.kolom .deskripsi {
+   font-size: 20px;
+   font-weight: bold;
+   color: #205781;
+}
+
+h2 {
+   font-weight: 800;
+   font-size: 45px;
+   margin-bottom: 20px;
+   color: #205781;
+   line-height: 50px;
+}
+
+/* Tombol Sign Up */
+a.tbl-biru {
+   background: #4F959D; /* Perbaiki dari 'backround' */
+   border-radius: 20px;
+   margin-top: 20px;
+   padding: 15px 20px; /* Perbaiki padding */
+   color: #F6F8D5; 
+   cursor: pointer;
+   font-weight: bold;
+
+}
+
+a.tbl-biru:hover {
+   background: #98D2C0;  
+}
+
+/* Tambahan untuk tombol pink */
+...
+
+/* Footer dan lainnya */
+...
