@@ -12,6 +12,34 @@ body {
     font-family: 'Open Sans', serif; /* Pastikan font tersedia di sistem atau gunakan font fallback */
 }
 
+/* Mode Gelap */
+body.dark-mode {
+    background-color: #121212; /* Warna latar belakang gelap */
+    color: white; /* Warna teks putih */
+}
+
+body.dark-mode a {
+    color: #ff9800; /* Warna link dalam mode gelap */
+}
+
+/* Tombol Mode Gelap/Terang */
+#toggle-theme {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #ff9800; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border: none; /* Menghapus border default */
+    padding: 10px 15px; /* Padding tombol */
+    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
+    border-radius: 5px; /* Membuat sudut tombol melengkung */
+    transition: background-color 0.3s ease; /* Transisi halus saat hover */
+}
+
+#toggle-theme:hover {
+    background-color: #e68a00; /* Warna saat hover */
+}
+
 .wrapper {
     width: 1100px;
     margin: auto;
@@ -19,9 +47,9 @@ body {
 
 .logo a {
     font-size: 50px;
-    font-weight: bold; /* Perbaikan dari '800px' menjadi 'bold' */
+    font-weight: bold; 
     float: left;
-    font-family: fantasy; /* Pastikan font ini sesuai dengan preferensi Anda */
+    font-family: fantasy; 
     color: #205781;
 }
 
@@ -30,12 +58,12 @@ body {
 }
 
 nav {
-    width: 100%; /* Perbaikan dari 'width;' menjadi 'width: 100%;' */
+    width: 100%; 
     display: flex;
     line-height: 80px;
-    position: sticky; /* Navbar tetap di atas saat scroll */
+    position: sticky; 
     top: 0;
-    background: #F6F8D5; /* Perbaikan dari 'bacground' menjadi 'background' */
+    background: #F6F8D5; 
     z-index: 1;
     border-bottom: 1px solid #205781;
 }
@@ -49,41 +77,42 @@ nav ul li {
 }
 
 nav ul li a {
-   color: black; /* Tambahkan titik koma untuk menghindari error */
+   color: black; 
    font-weight: bold;
    text-align: center;
-   padding: 0 16px; /* Gunakan shorthand untuk padding */
-   text-decoration: none; /* Pastikan link tidak memiliki garis bawah */
+   padding: 0 16px; 
+   text-decoration: none; 
 }
 
 nav ul li a:hover {
    text-decoration: underline; 
+   transform: scale(1.1); /* Efek zoom saat hover */
 }
 
 /* Section styling */
 section {
-   margin-bottom: 50px; /* Jarak bawah section */
-   display: flex; /* Untuk membuat gambar dan teks sejajar */
-   align-items: center; /* Pusatkan konten secara vertikal */
-   gap: 20px; /* Beri jarak antara gambar dan teks */
+   margin-bottom: 50px; 
+   display: flex; 
+   align-items: center; 
+   gap: 20px; 
 }
 
 /* Styling untuk gambar agar tidak lengket dengan header */
 .library-image {
-   width: 500px; /* Sesuaikan ukuran gambar */
-   height: auto; /* Pertahankan rasio aspek gambar */
-   margin-top: 20px; /* Beri jarak antara gambar dan header */
+   width: 500px; 
+   height: auto; 
+   margin-top: 20px; 
 }
 
 /* Kolom styling */
 .kolom {
-   margin-top: 50px; /* Jarak atas kolom */
-   margin-bottom: 50px; /* Jarak bawah kolom */
+   margin-top: 50px; 
+   margin-bottom: 50px; 
 }
 
 /* Deskripsi styling */
 .kolom .deskripsi {
-   font-size: 45px; /* Ukuran besar untuk judul utama */
+   font-size: 45px; 
    font-weight: bold;
    color: #205781;
 }
