@@ -1,82 +1,80 @@
+
+index.html
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Sheila</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Tambahkan Anime.js untuk animasi -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Sheila</title>
+<link rel="stylesheet" href="style.css">
+<!-- Tambahkan Anime.js untuk animasi -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="wrapper">
-            <div class="logo"><a href="index.html">Perpustakaan Digital Sheila</a></div>
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="TentangSaya.html">Tentang Saya</a></li>
-                    <li><a href="KontakKami.html">Kontak Kami</a></li>
-                    <li><a href="Koleksi.html">Koleksi</a></li> <!-- Pastikan Koleksi.html ada -->
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav>
+<div class="wrapper">
+<div class="logo"><a href="index.html">Perpustakaan Digital Sheila</a></div>
+<div class="menu">
+<ul>
+<li><a href="index.html">Beranda</a></li>
+<li><a href="TentangSaya.html">Tentang Saya</a></li>
+<li><a href="KontakKami.html">Kontak Kami</a></li>
+<li><a href="Koleksi.html">Koleksi</a></li> <!-- Pastikan Koleksi.html ada -->
+</ul>
+</div>
+</div>
+</nav>
 
-    <!-- Konten Utama -->
-    <div class="wrapper">
-        <!-- Untuk home -->
-        <section id="home">
-            <!-- Gambar dengan animasi -->
-            <img src="https://img.freepik.com/free-vector/online-library-concept-with-reading-people-electronic-devices-book-shelves-3d-isometric_1284-31703.jpg?uid=R192201751&ga=GA1.1.2109572445.1741589569&semt=ais_hybrid" alt="Library Image" class="library-image"/>
-            
-            <!-- Kontainer untuk teks -->
-            <div class="kolom">
-                <p class="deskripsi">Hallo, Selamat Datang di Perpustakaan Digital Sheila Lubis!</p>
-                <h2>Kerjasama Dengan <a href="https://library.usu.ac.id/" target="_blank">Perpustakaan USU</a></h2>
-                <p class="quote">"Perpustakaan digital membuka gerbang pengetahuan tanpa batas—cukup satu klik untuk menjelajahi dunia ilmu, kapan saja dan di mana saja."</p>
-            </div>
-        </section>
+<!-- Konten Utama -->
+<div class="wrapper">
+<!-- Untuk home -->
+<section id="home">
+<!-- Gambar dengan animasi -->
+<img src="https://img.freepik.com/free-vector/online-library-concept-with-reading-people-electronic-devices-book-shelves-3d-isometric_1284-31703.jpg?uid=R192201751&ga=GA1.1.2109572445.1741589569&semt=ais_hybrid" alt="Library Image" class="library-image"/>
 
-        <!-- Kontrol Musik -->
-        <div id="music-control" style="text-align: center; margin-top: 20px;">
-            <!-- Embed video YouTube sebagai musik latar -->
-            <iframe id="music-iframe" width="560" height="315" src="https://www.youtube.com/embed/R1r9nLYcqBU?autoplay=1&loop=1&playlist=R1r9nLYcqBU" frameborder="0" allowfullscreen></iframe> 
-        </div>
-    </div>
+<!-- Kontainer untuk teks -->
+<div class="kolom">
+<p class="deskripsi">Hallo, Selamat Datang di Perpustakaan Digital Sheila Lubis!</p>
+<h2>Kerjasama Dengan <a href="https://library.usu.ac.id/" target="_blank">Perpustakaan USU</a></h2>
+<p class="quote">"Perpustakaan digital membuka gerbang pengetahuan tanpa batas—cukup satu klik untuk menjelajahi dunia ilmu, kapan saja dan di mana saja."</p>
+</div>
+</section>
+</div>
 
-    <!-- Tambahkan JavaScript untuk animasi -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Animasi untuk gambar
-            anime({
-                targets: '.library-image',
-                translateY: [-100, 0], // Gambar bergerak dari atas ke posisi normal
-                opacity: [0, 1], // Memudar dari transparan ke terlihat
-                duration: 1500, // Durasi animasi dalam milidetik
-                easing: 'easeOutExpo' // Jenis easing animasi
-            });
+<!-- Tambahkan JavaScript untuk animasi -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+// Animasi untuk gambar
+anime({
+targets: '.library-image',
+translateY: [-100, 0], // Gambar bergerak dari atas ke posisi normal
+opacity: [0, 1], // Memudar dari transparan ke terlihat
+duration: 1500, // Durasi animasi dalam milidetik
+easing: 'easeOutExpo' // Jenis easing animasi
+});
 
-            // Animasi untuk teks deskripsi
-            anime({
-                targets: '.deskripsi',
-                translateY: [50, 0], // Teks bergerak dari bawah ke posisi normal
-                opacity: [0, 1], // Memudar dari transparan ke terlihat
-                duration: 1200,
-                easing: 'easeOutExpo'
-            });
+// Animasi untuk teks deskripsi
+anime({
+targets: '.deskripsi',
+translateY: [50, 0], // Teks bergerak dari bawah ke posisi normal
+opacity: [0, 1], // Memudar dari transparan ke terlihat
+duration: 1200,
+easing: 'easeOutExpo'
+});
 
-            // Animasi untuk kutipan
-            anime({
-                targets: '.quote',
-                translateY: [30, 0],
-                opacity: [0, 1],
-                duration: 1300,
-                easing: 'easeOutExpo'
-            });
-        });
-    </script>
+// Animasi untuk kutipan
+anime({
+targets: '.quote',
+translateY: [30, 0],
+opacity: [0, 1],
+duration: 1300,
+easing: 'easeOutExpo'
+});
+});
+</script>
 
 </body>
 </html>
