@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Sheila</title>
+    <title>Tentang Saya - Website Sheila</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,42 +12,46 @@
             <div class="logo"><a href="#">Perpustakaan Digital Sheila</a></div>
             <div class="menu">
                 <ul>
-                    <li><a href="#index.html">Beranda</a></li>
-                    <li><a href="#TentangSaya.html">Tentang Saya</a></li>
-                    <li><a href="#KontakSaya.html">Kontak Saya</a></li>
-                    <li><a href="#Koleksi.html">Koleksi</a></li>
+                    <li><a href="index.html">Beranda</a></li> 
+                    <li><a href="#TentangSaya">Tentang Saya</a></li> 
+                    <li><a href="#KontakSaya">Kontak Saya</a></li> 
+                    <li><a href="#Koleksi">Koleksi</a></li> 
                 </ul>
-            </div>
-        </div>
+            </div><!-- .menu -->
+        </div><!-- .wrapper -->
     </nav>
-    <!-- tentang saya -->
- <section id="Tentang Saya">
-    <div class="tengah">
+
+    <!-- Tentang Saya -->
+    <div class="wrapper">
+        <section id="#TentangSaya"> <!-- ID sesuai dengan link di navbar -->
+            <!-- Kolom untuk informasi pribadi -->
+            <div class="kolom">
                 <p class="deskripsi"><b>Informasi Pribadi</b></p>
-                <style>
-                    table, th, td {
-                      border:1px solid black;
-                    }
-                </style>
-                <body>
-                <table style="width:80%">
+
+                <!-- Tabel Informasi Pribadi -->
+                <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                      <th>Nama</th>
-                      <th>NIM</th>
-                      <th>Program Studi</th>
-                      <th>Universitas</th>
-                      <th>Email</th>
-                    </tr>
+                        <!-- Header tabel -->
+                        <th style="border: 1px solid black; padding: 8px;">Nama</th>
+                        <th style="border: 1px solid black; padding: 8px;">NIM</th>
+                        <th style="border: 1px solid black; padding: 8px;">Program Studi</th>
+                        <th style="border: 1px solid black; padding: 8px;">Universitas</th>
+                        <th style="border: 1px solid black; padding: 8px;">Email</th>
+                    </tr><!-- .header-row -->
+                    <!-- Data tabel -->
                     <tr>
-                      <td>Sheila Al Zahra Lubis</td>
-                      <td>220709084</td>
-                      <td>Perpustakaan dan Sains Informasi</td>
-                      <td>Universitas Sumatera Utara</td>
-                      <td>sheilalzahralubis@gmail.com</td>
-                    </tr>
-                </table>
-                </body>
-    </div>
-</section>
-</body>
-</html>
+                        <!-- Data pribadi -->
+                        <td style="border: 1px solid black; padding: 8px;">Sheila Al Zahra Lubis</td>
+                        <td style="border: 1px solid black; padding: 8px;">220709084</td>
+                        <td style="border: 1px solid black; padding: 8px;">Perpustakaan dan Sains Informasi</td>
+                        <td style="border: 1px solid black; padding: 8px;">Universitas Sumatera Utara</td>
+                        <td style="border: 1px solid black; padding: 8px;">sheilalzahralubis@gmail.com</td><!-- .data-row -->
+                    </tr><!-- .data-row -->
+                </table><!-- .table -->
+
+            </div><!-- .kolom -->
+        </section><!-- #TentangSaya -->
+    </div><!-- .wrapper -->
+
+</body><!-- .body -->
+</html><!-- .html -->
