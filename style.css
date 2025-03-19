@@ -1,3 +1,4 @@
+/* Reset default */
 * {
     text-decoration: none;
     margin: 0px;
@@ -17,7 +18,7 @@ body {
 
 .logo a {
     font-size: 50px;
-    font-weight: 800;
+    font-weight: bold; /* Perbaiki dari '800px' */
     float: left;
     font-family: fantasy;
     color: #205781;
@@ -57,47 +58,44 @@ nav ul li a:hover {
    text-decoration: underline; 
 }
 
+/* Section styling */
 section {
-   margin-bottom: 50px; /* Perbaiki dari 'margin-buttom' */
+   margin-bottom: 50px; /* Jarak bawah section */
+   display: flex; /* Untuk membuat gambar dan teks sejajar */
+   align-items: center; /* Pusatkan konten secara vertikal */
+   gap: 20px; /* Beri jarak antara gambar dan teks */
 }
 
+/* Styling untuk gambar agar tidak lengket dengan header */
+.library-image {
+   width: 500px; /* Sesuaikan ukuran gambar */
+   height: auto; /* Pertahankan rasio aspek gambar */
+   margin-top: 20px; /* Beri jarak antara gambar dan header */
+}
+
+/* Kolom styling */
 .kolom {
-   margin-top: 50px; /* Perbaiki dari 'margin top' */
-   margin-bottom: 50px;
+   margin-top: 50px; /* Jarak atas kolom */
+   margin-bottom: 50px; /* Jarak bawah kolom */
 }
 
+/* Deskripsi styling */
 .kolom .deskripsi {
-   font-size: 20px;
+   font-size: 45px; /* Ukuran besar untuk judul utama */
    font-weight: bold;
    color: #205781;
 }
 
+/* Heading styling */
 h2 {
-   font-weight: 800;
-   font-size: 45px;
+   font-weight: bold; /* Perbaiki dari '800' */
+   font-size: 20px; /* Ukuran lebih kecil untuk subjudul */
    margin-bottom: 20px;
    color: #205781;
-   line-height: 50px;
 }
 
-/* Tombol Sign Up */
-a.tbl-biru {
-   background: #4F959D; /* Perbaiki dari 'backround' */
-   border-radius: 20px;
-   margin-top: 20px;
-   padding: 15px 20px; /* Perbaiki padding */
-   color: #F6F8D5; 
-   cursor: pointer;
-   font-weight: bold;
-
+/* Styling untuk kutipan agar tidak menjadi link saat di klik */
+.quote {
+   font-size: 18px; /* Ukuran teks yang nyaman dibaca */
+   line-height: 1.6; /* Jarak antar baris teks untuk keterbacaan lebih baik */
 }
-
-a.tbl-biru:hover {
-   background: #98D2C0;  
-}
-
-/* Tambahan untuk tombol pink */
-...
-
-/* Footer dan lainnya */
-...
