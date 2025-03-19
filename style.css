@@ -1,157 +1,66 @@
-* {
-    text-decoration: none;
-    margin: 0px;
-    padding: 0px; 
-}
-
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans',serif;
-}
-
-.wrapper {
-    width: 1100px;
-    margin: auto;
-    position: relative;
-}
-
-.logo a {
-    font-size: 50px;
-    font-weight: 800px;
-    float: left;
-    font-family: fantasy;
-    color: #205781;
+/* style.css */
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .menu {
-    float: right;
+  list-style: none;
+  display: flex;
 }
 
-nav {
-    width; 100%;
-    margin: auto;
-    display: flex;
-    line-height: 80px;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    bacground: #F6F8D5;
-    z-index: 1;
-    border-bottom: 1px solid #205781;
+.menu li {
+  margin-left: 20px;
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-nav ul li { 
-    float: left;
-}
-
-nav ul li a {
-    color: black
-    font-weight: bold;
-    text-align: center;
-    padding: 0px 16px 0px 16px;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    text-decoration: underline; 
-}
-
-section {
-    margin: auto;
-    display: flex;
-    margin-buttom: 50px;
-}
-
-.kolom {
-    margin top: 50px;
-    margin-bottom: 50px;
-}
-
-.kolom .deskripsi {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Open Sans',serif;
-    color: #205781;
-}
-
-h2 {
-    font-family: 'Open Sans',serif;
-    font-weight: 800;
-    font-size: 45px;
-    margin-bottom: 20px;
-    color: #205781;
-    width: 100%;
-    line-height: 50px;
-}
-
-a.tb;-biru {
-    backround: #4F959D;
-    border-radius: 20px;
-    margin-top: 20px;
-    padding: 15px 20px 15px 20px
-    color: #F6F8D5; 
-    cursor: pointer;
-    font-weight: bold;
-
-}
-
-a.tbl-biru:hover {
-  background: #98D2C0;  
+.menu a {
+  color: white;
   text-decoration: none;
 }
 
-a.tbl-pink {
-    backround: #98D2C0;
-    border-radius: 20px;
-    margin-top: 20px;
-    padding: 15px 20px 15px 20px
-    color: #F6F8D5; 
-    cursor: pointer;
-    font-weight: bold;
+/* Hamburger Menu (untuk mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
 }
 
-a. tbl-pink: hover {
-    backround: #4F959D;
-    text-decoration: none;
+.hamburger span {
+  height: 2px;
+  width: 25px;
+  background-color: white;
+  margin-bottom: 4px;
+  display: block;
 }
 
-p {
-    margin: 10px 0px 10px 0px;
-    padding: 10px 0px 10px 0px;
-}
+/* Media Query untuk tampilan mobile */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 10px;
+  }
 
-#contact {
-    background: #dedede;
-    padding: 50px 0px 50px 0px;
-}
+  .menu li {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+  }
 
-.footer {
-    width: 100%
-    position: relative;
+  .hamburger {
     display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-}
+  }
 
-.footer-sections {
-    width: 20%
-    margin: 0 auto;
-}
-
-h3 {
-    font-family: 'Open Sans',serif;
-    font-weight: 800;
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #205781;
-    width: 100%
-    line-height: 50px;
+  .menu.active {
+    display: flex;
+  }
 }
