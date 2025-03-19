@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Sheila</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan Anime.js untuk animasi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="wrapper">
             <div class="logo"><a href="index.html">Perpustakaan Digital Sheila</a></div>
@@ -21,9 +24,11 @@
         </div>
     </nav>
 
+    <!-- Konten Utama -->
     <div class="wrapper">
         <!-- Untuk home -->
         <section id="home">
+            <!-- Gambar dengan animasi -->
             <img src="https://img.freepik.com/free-vector/online-library-concept-with-reading-people-electronic-devices-book-shelves-3d-isometric_1284-31703.jpg?uid=R192201751&ga=GA1.1.2109572445.1741589569&semt=ais_hybrid" alt="Library Image" class="library-image"/>
             
             <!-- Kontainer untuk teks -->
@@ -34,5 +39,38 @@
             </div>
         </section>
     </div>
+
+    <!-- Tambahkan JavaScript untuk animasi -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Animasi untuk gambar
+            anime({
+                targets: '.library-image',
+                translateY: [-100, 0], // Gambar bergerak dari atas ke posisi normal
+                opacity: [0, 1], // Memudar dari transparan ke terlihat
+                duration: 1500, // Durasi animasi dalam milidetik
+                easing: 'easeOutExpo' // Jenis easing animasi
+            });
+
+            // Animasi untuk teks deskripsi
+            anime({
+                targets: '.deskripsi',
+                translateY: [50, 0], // Teks bergerak dari bawah ke posisi normal
+                opacity: [0, 1], // Memudar dari transparan ke terlihat
+                duration: 1200,
+                easing: 'easeOutExpo'
+            });
+
+            // Animasi untuk kutipan
+            anime({
+                targets: '.quote',
+                translateY: [30, 0],
+                opacity: [0, 1],
+                duration: 1300,
+                easing: 'easeOutExpo'
+            });
+        });
+    </script>
+
 </body>
 </html>
