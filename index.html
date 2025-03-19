@@ -41,15 +41,12 @@
 
         <!-- Kontrol Musik -->
         <div id="music-control" style="text-align: center; margin-top: 20px;">
-            <button id="play-music" style="padding: 10px 20px; background-color: #205781; color: white; border: none; border-radius: 5px; cursor: pointer;">Play Music</button>
-            <button id="pause-music" style="padding: 10px 20px; background-color: #4F959D; color: white; border: none; border-radius: 5px; cursor: pointer;">Pause Music</button>
+            <!-- Embed video YouTube sebagai musik latar -->
+            <iframe id="music-iframe" width="560" height="315" src="https://www.youtube.com/embed/R1r9nLYcqBU?autoplay=1&loop=1&playlist=R1r9nLYcqBU" frameborder="0" allowfullscreen></iframe> 
         </div>
-
-        <!-- Audio Element (Hidden) -->
-        <audio id="background-music" src="https://www.youtube.com/embed/R1r9nLYcqBU?autoplay=1&loop=1"></audio> <!-- Link musik instrumen -->
     </div>
 
-    <!-- Tambahkan JavaScript untuk animasi dan musik -->
+    <!-- Tambahkan JavaScript untuk animasi -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Animasi untuk gambar
@@ -77,20 +74,6 @@
                 opacity: [0, 1],
                 duration: 1300,
                 easing: 'easeOutExpo'
-            });
-
-            // Musik instrumen
-            const audio = document.getElementById('background-music');
-
-            // Tombol Play Music
-            document.getElementById('play-music').addEventListener('click', () => {
-                audio.play();
-                audio.loop = true; // Ulangi musik secara otomatis
-            });
-
-            // Tombol Pause Music
-            document.getElementById('pause-music').addEventListener('click', () => {
-                audio.pause();
             });
         });
     </script>
