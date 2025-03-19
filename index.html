@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contoh Navbar Responsif</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sheila</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="index.html">Perpustakaan Digital Sheila</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="AboutUs.html">About Us</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                    <li><a href="#collection">Collections</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <!--untuk home-->
+         <section id="home">
+            <img src="https://img.freepik.com/free-vector/library-concept-illustration_114360-28841.jpg?ga=GA1.1.2109572445.1741589569&semt=ais_hybrid"/>
+            <div class="kolom">
+                <p class="deskripsi">Pengembangan Web Perpustakaan-Praktik</p>
+                <h2>Perpustakaan Sheila Lubis</h2>
+                <p>Selamat datang di website Sheila Lubis website ini dibuat sebagai wadah untuk mengembangkan kreativitas.</p>
+                <p>Kerjasama Perpustakaan <a href="https://library.usu.ac.id/" target="_blank">Perpustakaan USU</a></p>
+            </div>
+         </section>
 
-  <nav>
-    <div class="logo">
-      <a href="#">Logo</a>
-    </div>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="menu">
-      <li><a href="/">Beranda</a></li>
-      <li><a href="/tentang">Tentang Kami</a></li>
-      <li><a href="/layanan">Layanan</a></li>
-      <li><a href="/kontak">Kontak</a></li>
-    </ul>
-  </nav>
+         <!--untuk about us-->
+         <section id="aboutus"> <!-- Perbaiki ID -->
+            <div class="kolom">
+                <p class="deskripsi">You Will Need This</p>
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit, cumque quae dolorem temporibus officia est? Magni voluptates rerum iste sit, molestiae aliquid soluta non animi minus nam. Reiciendis, quaerat!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores suscipit, cumque quae dolorem temporibus officia est? Magni voluptates rerum iste sit, molestiae aliquid soluta non animi minus nam. Reiciendis, quaerat!</p>
+            </div>
+            <img src="https://img.freepik.com/free-vector/women-library-reading-searching-books_33099-1732.jpg?uid=R192201751&ga=GA1.1.2109572445.1741589569&semt=ais_hybrid">
+         </section>
 
-  <script src="script.js"></script>
+    </div>
 </body>
 </html>
