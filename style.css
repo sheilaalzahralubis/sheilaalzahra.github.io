@@ -7,7 +7,7 @@
 body {
     margin: 0px;
     padding: 0px;
-    font-family: 'Open Sans',sans-serif;
+    font-family: 'Open Sans',serif;
 }
 
 .wrapper {
@@ -20,8 +20,8 @@ body {
     font-size: 50px;
     font-weight: 800px;
     float: left;
-    font-family: courier;
-    color: #364f6b;
+    font-family: fantasy;
+    color: #205781;
 }
 
 .menu {
@@ -32,11 +32,13 @@ nav {
     width; 100%;
     margin: auto;
     display: flex;
-    lone-height: 80px;
+    line-height: 80px;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    bacground: #FFFFFFF;
+    bacground: #F6F8D5;
+    z-index: 1;
+    border-bottom: 1px solid #205781;
 }
 
 nav ul {
@@ -59,7 +61,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; 
 }
 
 section {
@@ -76,40 +78,80 @@ section {
 .kolom .deskripsi {
     font-size: 20px;
     font-weight: bold;
-    font-family: 'comic sans ms';
-    color: #364f6b;
+    font-family: 'Open Sans',serif;
+    color: #205781;
 }
 
 h2 {
-    font-family: 'comic sans ms';
+    font-family: 'Open Sans',serif;
     font-weight: 800;
     font-size: 45px;
     margin-bottom: 20px;
-    color: #364f6b;
+    color: #205781;
     width: 100%;
     line-height: 50px;
 }
 
 a.tb;-biru {
-    backround: #3f72af;
+    backround: #4F959D;
     border-radius: 20px;
     margin-top: 20px;
     padding: 15px 20px 15px 20px
-    color: #FFFFFF;
+    color: #F6F8D5; 
     cursor: pointer;
     font-weight: bold;
 
 }
 
 a.tbl-biru:hover {
-  background: #fc5185;  
+  background: #98D2C0;  
   text-decoration: none;
 }
 
-tabel, td {
-    border: 1px solid #FFFF;
-    border-collapse: collapse;
+a.tbl-pink {
+    backround: #98D2C0;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 15px 20px 15px 20px
+    color: #F6F8D5; 
+    cursor: pointer;
+    font-weight: bold;
 }
-th {
-    background-color: #96D4D4;
+
+a. tbl-pink: hover {
+    backround: #4F959D;
+    text-decoration: none;
+}
+
+p {
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+}
+
+#contact {
+    background: #dedede;
+    padding: 50px 0px 50px 0px;
+}
+
+.footer {
+    width: 100%
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.footer-sections {
+    width: 20%
+    margin: 0 auto;
+}
+
+h3 {
+    font-family: 'Open Sans',serif;
+    font-weight: 800;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #205781;
+    width: 100%
+    line-height: 50px;
 }
