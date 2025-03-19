@@ -1,14 +1,15 @@
 /* Reset default */
 * {
     text-decoration: none;
-    margin: 0px;
-    padding: 0px; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Tambahkan box-sizing untuk menghindari masalah margin/padding */
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans', serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', serif; /* Pastikan font tersedia di sistem atau gunakan font fallback */
 }
 
 .wrapper {
@@ -18,9 +19,9 @@ body {
 
 .logo a {
     font-size: 50px;
-    font-weight: bold; /* Perbaiki dari '800px' */
+    font-weight: bold; /* Perbaikan dari '800px' menjadi 'bold' */
     float: left;
-    font-family: fantasy;
+    font-family: fantasy; /* Pastikan font ini sesuai dengan preferensi Anda */
     color: #205781;
 }
 
@@ -29,12 +30,12 @@ body {
 }
 
 nav {
-    width: 100%; /* Perbaiki dari 'width;' */
+    width: 100%; /* Perbaikan dari 'width;' menjadi 'width: 100%;' */
     display: flex;
     line-height: 80px;
-    position: sticky;
+    position: sticky; /* Navbar tetap di atas saat scroll */
     top: 0;
-    background: #F6F8D5; /* Perbaiki dari 'bacground' */
+    background: #F6F8D5; /* Perbaikan dari 'bacground' menjadi 'background' */
     z-index: 1;
     border-bottom: 1px solid #205781;
 }
@@ -48,10 +49,11 @@ nav ul li {
 }
 
 nav ul li a {
-   color: black; /* Tambahkan titik koma */
+   color: black; /* Tambahkan titik koma untuk menghindari error */
    font-weight: bold;
    text-align: center;
-   padding: 0px 16px; /* Perbaiki padding */
+   padding: 0 16px; /* Gunakan shorthand untuk padding */
+   text-decoration: none; /* Pastikan link tidak memiliki garis bawah */
 }
 
 nav ul li a:hover {
@@ -88,14 +90,30 @@ section {
 
 /* Heading styling */
 h2 {
-   font-weight: bold; /* Perbaiki dari '800' */
-   font-size: 20px; /* Ukuran lebih kecil untuk subjudul */
+   font-weight: bold; 
+   font-size: 20px; 
    margin-bottom: 20px;
    color: #205781;
 }
 
 /* Styling untuk kutipan agar tidak menjadi link saat di klik */
 .quote {
-   font-size: 18px; /* Ukuran teks yang nyaman dibaca */
-   line-height: 1.6; /* Jarak antar baris teks untuk keterbacaan lebih baik */
+   font-size: 18px; 
+   line-height: 1.6; 
+}
+
+/* Formulir styling (tambahan untuk KontakSaya.html) */
+.form-group {
+   margin-bottom: 15px; /* Beri jarak antar elemen form */
+}
+
+label {
+   display:block; 
+   font-weight:bold;
+   margin-bottom:.5em
+}
+
+input, textarea {
+   width :100%;
+   padding :10px
 }
