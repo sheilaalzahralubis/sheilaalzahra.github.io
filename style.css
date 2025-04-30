@@ -55,6 +55,8 @@ body.dark-mode a {
 
 .menu {
     float: right;
+    display: flex;
+    align-items: center;
 }
 
 nav {
@@ -70,10 +72,11 @@ nav {
 
 nav ul {
     list-style-type: none;
+    display: flex;
 }
 
 nav ul li { 
-   float: left;
+   /* float: left;  dihapus karena sudah pakai flex */
 }
 
 nav ul li a {
@@ -196,4 +199,56 @@ button.submit {
 
 button.submit:hover {
     background-color: #e68a00;
+}
+
+/* ===== Styling Search Bar di Navbar ===== */
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+#nav-search {
+    padding: 8px 12px;
+    border: 1px solid #205781;
+    border-radius: 20px;
+    font-size: 16px;
+    width: 150px;
+    transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+    outline: none;
+}
+
+#nav-search:focus {
+    width: 220px;
+    border-color: #ff9800;
+}
+
+.search-results {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #205781;
+    border-radius: 0 0 10px 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(32, 87, 129, 0.07);
+    display: none;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.search-results li {
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-results li:hover {
+    background: #ff9800;
+    color: #fff;
 }
