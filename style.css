@@ -73,10 +73,18 @@ nav {
 nav ul {
     list-style-type: none;
     display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li { 
-   /* float: left;  dihapus karena sudah pakai flex */
+nav ul li {
+    position: relative;
+    margin-left: 10px;
+}
+
+.menu ul li.search-item {
+    margin-left: 20px;
 }
 
 nav ul li a {
@@ -202,31 +210,41 @@ button.submit:hover {
 }
 
 /* ===== Styling Search Bar di Navbar ===== */
-.search-container {
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
     position: relative;
-    display: inline-block;
+    margin-left: 10px;
+}
+
+.menu ul li.search-item {
     margin-left: 20px;
-    vertical-align: middle;
 }
 
 #nav-search {
-    padding: 8px 12px;
+    padding: 6px 12px;
     border: 1px solid #205781;
     border-radius: 20px;
-    font-size: 16px;
-    width: 150px;
+    font-size: 14px;
+    width: 140px;
     transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
     outline: none;
 }
 
 #nav-search:focus {
-    width: 220px;
+    width: 200px;
     border-color: #ff9800;
 }
 
 .search-results {
     position: absolute;
-    top: 38px;
+    top: 35px;
     left: 0;
     right: 0;
     background: #fff;
@@ -243,9 +261,10 @@ button.submit:hover {
 }
 
 .search-results li {
-    padding: 10px 18px;
+    padding: 8px 15px;
     cursor: pointer;
     transition: background 0.2s;
+    font-size: 14px;
 }
 
 .search-results li:hover {
