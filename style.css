@@ -139,10 +139,61 @@ h2 {
 label {
    display:block; 
    font-weight:bold;
-   margin-bottom:.5em
+   margin-bottom:.5em;
 }
 
 input, textarea {
    width :100%;
-   padding :10px
+   padding :10px;
+}
+
+/* Styling form kontak */
+form {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #205781; /* Sesuaikan dengan warna tema Anda */
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Open Sans', serif;
+    transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #ff9800; /* Warna fokus */
+    outline: none;
+}
+
+button.submit {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.submit:hover {
+    background-color: #e68a00;
 }
