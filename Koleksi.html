@@ -1,10 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Koleksi - Perpustakaan Digital Sheila</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Tambahan styling khusus halaman koleksi buku */
+        .collection-header {
+            font-size: 48px;
+            font-weight: bold;
+            color: #205781;
+            margin: 40px 0 20px 0;
+            text-align: center;
+        }
+
+        .book-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .book-card {
+            background: #f0f0f0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(32, 87, 129, 0.1);
+            max-width: 320px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .book-card:hover {
+            box-shadow: 0 8px 24px rgba(32, 87, 129, 0.2);
+        }
+
+        .book-cover {
+            width: 220px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(32, 87, 129, 0.15);
+        }
+
+        .book-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #205781;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .book-synopsis {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .read-button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+        }
+
+        .read-button:hover {
+            background-color: #e68a00;
+        }
+
+        /* Container untuk tampilan isi buku */
+        .book-content {
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(32, 87, 129, 0.1);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #222;
+            display: none; /* awalnya disembunyikan */
+            white-space: pre-wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .book-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .book-card {
+                max-width: 90%;
+            }
+            .book-content {
+                max-width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -26,25 +133,36 @@
     </nav>
 
     <div class="wrapper">
-        <section id="koleksi">
-            <div class="kolom">
-                <p class="deskripsi"><b>Koleksi Buku</b></p>
-                <p>Berikut adalah koleksi buku yang tersedia di perpustakaan digital kami.</p>
+        <h1 class="collection-header">Koleksi Buku</h1>
 
-                <div class="book-list">
-                    <article class="book-item">
-                        <h3>Layang-Layang Putus PDF</h3>
-                        <p><strong>Deskripsi:</strong> Novel Layang-Layang Putus dalam format PDF siap diunduh.</p>
-                        <p><a href="files/Layang-Layang-Putus.pdf" target="_blank" download>Download PDF</a></p>
-                    </article>
-
-                    <!-- Tambahkan koleksi buku lain di sini -->
+        <div class="book-container">
+            <div class="book-card">
+                <img src="https://i.postimg.cc/3w8Zgq1v/laut-bercerita-cover.jpg" alt="Sampul Buku Laut Bercerita" class="book-cover" />
+                <div class="book-title">Laut Bercerita</div>
+                <div class="book-synopsis">
+                    Laut Bercerita bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur.
                 </div>
+                <button class="read-button" id="read-btn">BACA</button>
             </div>
-        </section>
+        </div>
+
+        <div class="book-content" id="book-content">
+            <!-- Isi buku akan muncul di sini saat tombol BACA diklik -->
+            <h2>Laut Bercerita</h2>
+            <p>
+                Laut Bercerita bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur.
+            </p>
+            <p>
+                (Isi lengkap buku atau ringkasan panjang bisa Anda tambahkan di sini. Contoh ini hanya ringkasan singkat.)
+            </p>
+            <p>
+                Anda bisa menambahkan isi buku lengkap atau bab-babnya di sini agar pengunjung bisa membaca langsung tanpa pindah halaman.
+            </p>
+        </div>
     </div>
 
     <script>
+        // Data menu untuk pencarian
         const menuItems = [
             { name: "Beranda", url: "index.html" },
             { name: "Tentang Saya", url: "TentangSaya.html" },
@@ -83,6 +201,24 @@
         document.addEventListener("click", function (e) {
             if (!e.target.closest(".search-container")) {
                 resultsList.style.display = "none";
+            }
+        });
+
+        // Tombol baca untuk tampilkan isi buku
+        const readBtn = document.getElementById('read-btn');
+        const bookContent = document.getElementById('book-content');
+
+        readBtn.addEventListener('click', () => {
+            if (bookContent.style.display === 'block') {
+                bookContent.style.display = 'none';
+                readBtn.textContent = 'BACA';
+                // Scroll ke atas koleksi
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                bookContent.style.display = 'block';
+                readBtn.textContent = 'TUTUP';
+                // Scroll ke konten buku
+                bookContent.scrollIntoView({ behavior: 'smooth' });
             }
         });
     </script>
