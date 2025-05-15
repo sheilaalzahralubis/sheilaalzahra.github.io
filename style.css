@@ -54,6 +54,7 @@ body.dark-mode a {
     float: right;
     display: flex;
     align-items: center;
+    gap: 15px;
 }
 
 nav {
@@ -89,14 +90,9 @@ nav ul li a:hover {
 section {
    margin-bottom: 50px; 
    display: flex; 
-   align-items: center; 
+   align-items: flex-start; 
    gap: 20px; 
-}
-
-.library-image {
-   width: 500px; 
-   height: auto; 
-   margin-top: 20px; 
+   flex-direction: column;
 }
 
 .kolom {
@@ -108,74 +104,36 @@ section {
    font-size: 45px; 
    font-weight: bold;
    color: #205781;
-}
-
-h2 {
-   font-weight: bold; 
-   font-size: 20px; 
    margin-bottom: 20px;
-   color: #205781;
 }
 
-.quote {
-   font-size: 18px; 
-   line-height: 1.6; 
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.form-group {
-   margin-bottom: 15px; 
+.book-item {
+    background: #f0f0f0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(32, 87, 129, 0.1);
 }
 
-label {
-   display: block; 
-   font-weight: bold;
-   margin-bottom: 6px;
-   color: #205781; 
+.book-item h3 {
+    margin-bottom: 8px;
+    color: #205781;
 }
 
-input[type="email"],
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.book-item p {
     font-size: 16px;
-    font-family: 'Open Sans', serif;
-    transition: border-color 0.3s ease;
-}
-
-input[type="email"]:focus,
-input[type="text"]:focus,
-textarea:focus {
-    border-color: #ff9800;
-    outline: none;
-}
-
-button.submit {
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button.submit:hover {
-    background-color: #e68a00;
-}
-
-form {
-    max-width: 600px;
-    margin-top: 20px;
+    line-height: 1.4;
+    color: #333;
 }
 
 .search-container {
     position: relative;
     display: inline-block;
-    margin-left: 20px;
     vertical-align: middle;
 }
 
@@ -228,10 +186,6 @@ form {
     .wrapper {
         width: 95%;
     }
-    .library-image {
-        width: 100%;
-        max-width: 400px;
-    }
 }
 
 @media (max-width: 800px) {
@@ -250,9 +204,6 @@ form {
         flex-direction: column;
         gap: 10px;
     }
-    .library-image {
-        max-width: 300px;
-    }
 }
 
 @media (max-width: 600px) {
@@ -263,7 +214,7 @@ form {
     .logo a {
         font-size: 22px;
     }
-    h2, .kolom .deskripsi {
-        font-size: 18px;
+    .kolom .deskripsi {
+        font-size: 28px;
     }
 }
