@@ -5,11 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Sheila</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Tambahkan Anime.js untuk animasi -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- CSS Tambahan untuk Search Bar -->
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        #toggle-theme {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            position: relative;
+            display: inline-block;
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+
+        #nav-search {
+            padding: 8px 12px;
+            border: 1px solid #205781;
+            border-radius: 20px;
+            font-size: 16px;
+            width: 150px;
+            transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+            outline: none;
+        }
+
+        #nav-search:focus {
+            width: 220px;
+            border-color: #ff9800;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 38px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #205781;
+            border-radius: 0 0 10px 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(32, 87, 129, 0.07);
+            display: none;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .search-results li {
+            padding: 10px 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-results li:hover {
+            background: #ff9800;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <!-- Tombol Mode Gelap/Terang -->
     <button id="toggle-theme">Mode Gelap</button>
 
+    <!-- Navbar -->
     <nav>
         <div class="wrapper">
             <div class="logo"><a href="index.html">Perpustakaan Digital Sheila</a></div>
@@ -18,8 +92,9 @@
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="TentangSaya.html">Tentang Saya</a></li>
                     <li><a href="KontakKami.html">Kontak Kami</a></li>
-                    <li><a href="Koleksi.html">Koleksi</a></li>
+                    <li><a href="Koleksi.html">Koleksi</a></li> <!-- Pastikan Koleksi.html ada -->
                 </ul>
+                <!-- Search Bar Inovatif -->
                 <div class="search-container">
                     <input type="text" id="nav-search" placeholder="Cari menu..." autocomplete="off" />
                     <ul id="search-results" class="search-results"></ul>
@@ -28,9 +103,14 @@
         </div>
     </nav>
 
+    <!-- Konten Utama -->
     <div class="wrapper">
+        <!-- Untuk home -->
         <section id="home">
-            <img src="https://img.freepik.com/free-vector/online-library-concept-with-reading-people-electronic-devices-book-shelves-3d-isometric_1284-31703.jpg" alt="Library Image" class="library-image" />
+            <!-- Gambar dengan animasi -->
+            <img src="https://img.freepik.com/free-vector/online-library-concept-with-reading-people-electronic-devices-book-shelves-3d-isometric_1284-31703.jpg?uid=R192201751&ga=GA1.1.2109572445.1741589569&semt=ais_hybrid" alt="Library Image" class="library-image" />
+
+            <!-- Kontainer untuk teks -->
             <div class="kolom">
                 <p class="deskripsi" id="typing-text"></p>
                 <h2>Kerjasama Dengan <a href="https://library.usu.ac.id/" target="_blank">Perpustakaan USU</a></h2>
@@ -39,23 +119,28 @@
         </section>
     </div>
 
+    <!-- JavaScript -->
     <script>
-        // Animasi dan mode gelap
         document.addEventListener("DOMContentLoaded", function () {
+            // Animasi untuk gambar
             anime({
                 targets: ".library-image",
-                translateY: [-100, 0],
-                opacity: [0, 1],
-                duration: 1500,
-                easing: "easeOutExpo",
+                translateY: [-100, 0], // Gambar bergerak dari atas ke posisi normal
+                opacity: [0, 1], // Memudar dari transparan ke terlihat
+                duration: 1500, // Durasi animasi dalam milidetik
+                easing: "easeOutExpo", // Jenis easing animasi
             });
+
+            // Animasi untuk teks deskripsi
             anime({
                 targets: ".deskripsi",
-                translateY: [50, 0],
-                opacity: [0, 1],
+                translateY: [50, 0], // Teks bergerak dari bawah ke posisi normal
+                opacity: [0, 1], // Memudar dari transparan ke terlihat
                 duration: 1200,
                 easing: "easeOutExpo",
             });
+
+            // Animasi untuk kutipan
             anime({
                 targets: ".quote",
                 translateY: [30, 0],
@@ -64,6 +149,7 @@
                 easing: "easeOutExpo",
             });
 
+            // Mode Gelap dan Terang
             const themeButton = document.getElementById("toggle-theme");
             themeButton.addEventListener("click", function () {
                 document.body.classList.toggle("dark-mode");
@@ -72,6 +158,7 @@
                     : "Mode Gelap";
             });
 
+            // Efek Ketikan Otomatis
             const text = "Hallo, Selamat Datang di Perpustakaan Digital Sheila Lubis!";
             let index = 0;
             function typeWriter() {
@@ -83,6 +170,7 @@
             }
             typeWriter();
 
+            // Animasi Hover Menu
             document.querySelectorAll(".menu ul li a").forEach((link) => {
                 link.addEventListener("mouseenter", () => {
                     anime({
@@ -103,7 +191,7 @@
             });
         });
 
-        // Data menu untuk pencarian
+        // Search Bar Script
         const menuItems = [
             { name: "Beranda", url: "index.html" },
             { name: "Tentang Saya", url: "TentangSaya.html" },
@@ -139,6 +227,7 @@
             resultsList.style.display = "block";
         });
 
+        // Hide results when clicking outside
         document.addEventListener("click", function (e) {
             if (!e.target.closest(".search-container")) {
                 resultsList.style.display = "none";
