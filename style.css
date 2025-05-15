@@ -1,44 +1,39 @@
-/* Reset default */
 * {
     text-decoration: none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Tambahkan box-sizing untuk menghindari masalah margin/padding */
+    box-sizing: border-box; 
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', serif; /* Pastikan font tersedia di sistem atau gunakan font fallback */
+    font-family: 'Open Sans', serif; 
 }
 
-/* Mode Gelap */
 body.dark-mode {
-    background-color: #121212; /* Warna latar belakang gelap */
-    color: white; /* Warna teks putih */
+    background-color: #121212; 
+    color: white; 
 }
 
 body.dark-mode a {
-    color: #ff9800; /* Warna link dalam mode gelap */
-}
+    color: #ff9800; 
 
-/* Tombol Mode Gelap/Terang */
 #toggle-theme {
     position: fixed;
     top: 10px;
     right: 10px;
-    background-color: #ff9800; /* Warna latar belakang tombol */
-    color: white; /* Warna teks tombol */
-    border: none; /* Menghapus border default */
-    padding: 10px 15px; /* Padding tombol */
-    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
-    border-radius: 5px; /* Membuat sudut tombol melengkung */
-    transition: background-color 0.3s ease; /* Transisi halus saat hover */
+    background-color: #ff9800; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
 }
 
 #toggle-theme:hover {
-    background-color: #e68a00; /* Warna saat hover */
-}
+    background-color: #e68a00; 
 
 .wrapper {
     width: 1100px;
@@ -75,10 +70,6 @@ nav ul {
     display: flex;
 }
 
-nav ul li { 
-   /* float: left;  dihapus karena sudah pakai flex */
-}
-
 nav ul li a {
    color: black; 
    font-weight: bold;
@@ -89,10 +80,9 @@ nav ul li a {
 
 nav ul li a:hover {
    text-decoration: underline; 
-   transform: scale(1.1); /* Efek zoom saat hover */
+   transform: scale(1.1); 
 }
 
-/* Section styling */
 section {
    margin-bottom: 50px; 
    display: flex; 
@@ -100,27 +90,23 @@ section {
    gap: 20px; 
 }
 
-/* Styling untuk gambar agar tidak lengket dengan header */
 .library-image {
    width: 500px; 
    height: auto; 
    margin-top: 20px; 
 }
 
-/* Kolom styling */
 .kolom {
    margin-top: 50px; 
    margin-bottom: 50px; 
 }
 
-/* Deskripsi styling */
 .kolom .deskripsi {
    font-size: 45px; 
    font-weight: bold;
    color: #205781;
 }
 
-/* Heading styling */
 h2 {
    font-weight: bold; 
    font-size: 20px; 
@@ -128,15 +114,13 @@ h2 {
    color: #205781;
 }
 
-/* Styling untuk kutipan agar tidak menjadi link saat di klik */
 .quote {
    font-size: 18px; 
    line-height: 1.6; 
 }
 
-/* Formulir styling (tambahan untuk KontakSaya.html) */
 .form-group {
-   margin-bottom: 15px; /* Beri jarak antar elemen form */
+   margin-bottom: 15px; 
 }
 
 label {
@@ -150,7 +134,6 @@ input, textarea {
    padding :10px;
 }
 
-/* Styling form kontak */
 form {
     max-width: 600px;
     margin-top: 20px;
@@ -164,8 +147,7 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 6px;
-    color: #205781; /* Sesuaikan dengan warna tema Anda */
-}
+    color: #205781; 
 
 input[type="email"],
 input[type="text"],
@@ -201,7 +183,6 @@ button.submit:hover {
     background-color: #e68a00;
 }
 
-/* ===== Styling Search Bar di Navbar ===== */
 .search-container {
     position: relative;
     display: inline-block;
