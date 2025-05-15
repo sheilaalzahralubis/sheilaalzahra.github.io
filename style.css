@@ -1,3 +1,33 @@
+/* Definisi variabel warna untuk tema terang */
+:root {
+    --background-color: #fff;
+    --text-color: #333;
+    --primary-color: #205781;
+    --accent-color: #ff9800;
+    --nav-background: #F6F8D5;
+    --nav-border: #205781;
+    --link-color: black;
+    --link-hover-color: #ff9800;
+    --box-background: #f0f0f0;
+    --box-shadow-color: rgba(32, 87, 129, 0.1);
+}
+
+/* Variabel warna untuk tema gelap */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #fff;
+        --primary-color: #ff9800;
+        --accent-color: #ff9800;
+        --nav-background: #121212;
+        --nav-border: #ff9800;
+        --link-color: #ff9800;
+        --link-hover-color: #e68a00;
+        --box-background: #1e1e1e;
+        --box-shadow-color: rgba(255, 152, 0, 0.3);
+    }
+}
+
 /* Reset dan dasar */
 * {
     margin: 0;
@@ -8,18 +38,19 @@
 }
 
 body {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode {
-    background-color: #121212;
-    color: #fff;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 body.dark-mode a {
-    color: #ff9800;
+    color: var(--link-color);
 }
 
 /* Wrapper */
@@ -32,8 +63,8 @@ body.dark-mode a {
 
 /* Navbar */
 nav {
-    background-color: #F6F8D5;
-    border-bottom: 1px solid #205781;
+    background-color: var(--nav-background);
+    border-bottom: 1px solid var(--nav-border);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -41,14 +72,16 @@ nav {
     display: flex;
     align-items: center;
     padding: 0 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .logo a {
     font-family: fantasy;
     font-size: 50px;
     font-weight: bold;
-    color: #205781;
+    color: var(--primary-color);
     float: left;
+    transition: color 0.3s ease;
 }
 
 .menu {
@@ -65,14 +98,14 @@ nav {
 }
 
 .menu ul li a {
-    color: black;
+    color: var(--link-color);
     font-weight: bold;
     padding: 0 10px;
-    transition: transform 0.2s, color 0.3s;
+    transition: transform 0.2s, color 0.3s ease;
 }
 
 .menu ul li a:hover {
-    color: #ff9800;
+    color: var(--link-hover-color);
     text-decoration: underline;
     transform: scale(1.1);
 }
@@ -84,17 +117,19 @@ nav {
 
 #nav-search {
     padding: 8px 15px;
-    border: 1px solid #205781;
+    border: 1px solid var(--nav-border);
     border-radius: 20px;
     font-size: 16px;
     width: 150px;
-    transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+    transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55), border-color 0.3s ease;
     outline: none;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 #nav-search:focus {
     width: 220px;
-    border-color: #ff9800;
+    border-color: var(--accent-color);
 }
 
 .search-results {
@@ -102,8 +137,8 @@ nav {
     top: 38px;
     left: 0;
     right: 0;
-    background: #fff;
-    border: 1px solid #205781;
+    background: var(--background-color);
+    border: 1px solid var(--nav-border);
     border-radius: 0 0 10px 10px;
     list-style: none;
     max-height: 180px;
@@ -111,6 +146,7 @@ nav {
     box-shadow: 0 4px 12px rgba(32, 87, 129, 0.07);
     display: none;
     z-index: 101;
+    color: var(--text-color);
 }
 
 .search-results li {
@@ -120,8 +156,8 @@ nav {
 }
 
 .search-results li:hover {
-    background-color: #ff9800;
-    color: white;
+    background-color: var(--accent-color);
+    color: #fff;
 }
 
 /* Koleksi Buku */
@@ -133,7 +169,7 @@ nav {
 .kolom .deskripsi {
     font-size: 45px;
     font-weight: bold;
-    color: #205781;
+    color: var(--primary-color);
     margin-bottom: 20px;
 }
 
@@ -144,30 +180,30 @@ nav {
 }
 
 .book-item {
-    background-color: #f0f0f0;
+    background-color: var(--box-background);
     padding: 20px 25px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(32, 87, 129, 0.1);
+    box-shadow: 0 2px 8px var(--box-shadow-color);
     transition: box-shadow 0.3s ease;
 }
 
 .book-item:hover {
-    box-shadow: 0 6px 18px rgba(32, 87, 129, 0.2);
+    box-shadow: 0 6px 18px var(--box-shadow-color);
 }
 
 .book-item h3 {
-    color: #205781;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
 .book-item p {
     font-size: 16px;
     margin-bottom: 8px;
-    color: #333;
+    color: var(--text-color);
 }
 
 .book-item a {
-    color: #ff9800;
+    color: var(--accent-color);
     font-weight: bold;
     transition: color 0.3s;
 }
