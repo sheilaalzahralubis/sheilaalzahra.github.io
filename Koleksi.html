@@ -77,6 +77,76 @@
             background: #ff9800;
             color: #fff;
         }
+
+        /* ===== Tambahan Styling Koleksi E-Book ===== */
+        .ebook-collection {
+            margin: 50px 0;
+        }
+        .ebook-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .ebook-card {
+            background: #fff;
+            border: 1px solid #205781;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(32,87,129,0.08);
+            width: 320px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+        .ebook-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(32,87,129,0.13);
+        }
+        .ebook-cover {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #eee;
+        }
+        .ebook-info {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .ebook-title {
+            font-size: 20px;
+            color: #205781;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .ebook-desc {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+        .ebook-btn {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .ebook-btn:hover {
+            background-color: #e68a00;
+        }
+        body.dark-mode .ebook-card {
+            background: #232323;
+            border-color: #ff9800;
+        }
+        body.dark-mode .ebook-title,
+        body.dark-mode .ebook-desc {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -92,7 +162,7 @@
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="TentangSaya.html">Tentang Saya</a></li>
                     <li><a href="KontakKami.html">Kontak Kami</a></li>
-                    <li><a href="Koleksi.html">Koleksi</a></li> <!-- Pastikan Koleksi.html ada -->
+                    <li><a href="Koleksi.html">Koleksi</a></li>
                 </ul>
                 <!-- Search Bar Inovatif -->
                 <div class="search-container">
@@ -102,3 +172,36 @@
             </div>
         </div>
     </nav>
+
+    <!-- ===== Bagian Koleksi E-Book ===== -->
+    <section class="ebook-collection">
+        <div class="wrapper">
+            <h2>Koleksi E-Book Terbaru</h2>
+            <div class="ebook-list">
+                <!-- E-Book Card -->
+                <div class="ebook-card">
+                    <img src="https://i.ibb.co/9sZpZzN/ebook-cover.png" alt="Cover E-Book" class="ebook-cover">
+                    <div class="ebook-info">
+                        <h3 class="ebook-title">Judul E-Book Anda</h3>
+                        <p class="ebook-desc">Deskripsi singkat tentang isi e-book ini. Anda bisa menulis ringkasan, genre, atau alasan kenapa e-book ini menarik untuk dibaca.</p>
+                        <a href="https://drive.google.com/file/d/15aoI6siuEsXWX7xuTjFG9mXPxYB4fS6n/view?usp=drivesdk" target="_blank" class="ebook-btn">Baca E-Book</a>
+                    </div>
+                </div>
+                <!-- Tambahkan koleksi lain di sini dengan menyalin ebook-card -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const toggleThemeBtn = document.getElementById('toggle-theme');
+        toggleThemeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if(document.body.classList.contains('dark-mode')) {
+                toggleThemeBtn.textContent = 'Mode Terang';
+            } else {
+                toggleThemeBtn.textContent = 'Mode Gelap';
+            }
+        });
+    </script>
+</body>
+</html>
