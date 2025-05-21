@@ -233,6 +233,96 @@
                 resultsList.style.display = "none";
             }
         });
+        function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+function acceptCookie() {
+  setCookie('cookieConsent', 'accepted', 365);
+  setCookie('analytics', 'yes', 365);
+  setCookie('ads', 'yes', 365);
+  document.getElementById('cookie-banner').classList.add('hide');
+}
+function openCookieModal() {
+  document.getElementById('cookie-modal').classList.add('active');
+  // Set checkbox sesuai cookie
+  document.getElementById('analytics-cookie').checked = getCookie('analytics') !== 'no';
+  document.getElementById('ads-cookie').checked = getCookie('ads') !== 'no';
+}
+function closeCookieModal() {
+  document.getElementById('cookie-modal').classList.remove('active');
+}
+document.getElementById('cookieForm').onsubmit = function(e) {
+  e.preventDefault();
+  setCookie('cookieConsent', 'custom', 365);
+  setCookie('analytics', document.getElementById('analytics-cookie').checked ? 'yes' : 'no', 365);
+  setCookie('ads', document.getElementById('ads-cookie').checked ? 'yes' : 'no', 365);
+  closeCookieModal();
+  document.getElementById('cookie-banner').classList.add('hide');
+};
+window.onload = function() {
+  if (!getCookie('cookieConsent')) {
+    document.getElementById('cookie-banner').classList.remove('hide');
+  } else {
+    document.getElementById('cookie-banner').classList.add('hide');
+  }
+};
+// Tutup modal jika klik di luar modal
+document.getElementById('cookie-modal').onclick = function(e) {
+  if (e.target === this) closeCookieModal();
+};
     </script>
+    <!-- Tambahkan di akhir body HTML-mu -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-banner-content">
+    <span>
+      Website ini menggunakan cookies untuk meningkatkan pengalaman Anda.
+    </span>
+    <div class="cookie-banner-actions">
+      <button class="accept" onclick="acceptCookie()">Terima</button>
+      <button class="manage" onclick="openCookieModal()">Kelola Cookie</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Kelola Cookie -->
+<div id="cookie-modal" class="cookie-modal">
+  <div class="cookie-modal-content">
+    <h3>Kelola Preferensi Cookie</h3>
+    <form id="cookieForm">
+      <label>
+        <span>Cookie Fungsional (wajib)</span>
+        <input type="checkbox" checked disabled>
+      </label>
+      <label>
+        <span>Cookie Analitik</span>
+        <input type="checkbox" id="analytics-cookie">
+      </label>
+      <label>
+        <span>Cookie Iklan</span>
+        <input type="checkbox" id="ads-cookie">
+      </label>
+      <div style="margin-top:18px;">
+        <button type="submit" class="save">Simpan</button>
+        <button type="button" class="close" onclick="closeCookieModal()">Batal</button>
+      </div>
+    </form>
+  </div>
+</div>
 </body>
 </html>
