@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Sheila</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Tambahkan Anime.js untuk animasi -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-    <!-- CSS Tambahan untuk Search Bar -->
     <style>
         body.dark-mode {
             background-color: #121212;
@@ -24,6 +22,7 @@
             padding: 10px;
             cursor: pointer;
             border-radius: 5px;
+            z-index: 1000;
         }
 
         /* Search Bar Styling */
@@ -80,10 +79,8 @@
     </style>
 </head>
 <body>
-    <!-- Tombol Mode Gelap/Terang -->
     <button id="toggle-theme">Mode Gelap</button>
 
-    <!-- Navbar -->
     <nav>
         <div class="wrapper">
             <div class="logo"><a href="index.html">Perpustakaan Digital Sheila</a></div>
@@ -92,9 +89,8 @@
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="TentangSaya.html">Tentang Saya</a></li>
                     <li><a href="KontakKami.html">Kontak Kami</a></li>
-                    <li><a href="Koleksi.html">Koleksi</a></li> <!-- Pastikan Koleksi.html ada -->
+                    <li><a href="Koleksi.html">Koleksi</a></li>
                 </ul>
-                <!-- Search Bar Inovatif -->
                 <div class="search-container">
                     <input type="text" id="nav-search" placeholder="Cari menu..." autocomplete="off" />
                     <ul id="search-results" class="search-results"></ul>
@@ -103,37 +99,108 @@
         </div>
     </nav>
 
-    <!-- Tentang Saya -->
     <div class="wrapper">
-        <section id="#TentangSaya"> <!-- ID sesuai dengan link di navbar -->
-            <!-- Kolom untuk informasi pribadi -->
+        <section id="TentangSaya">
             <div class="kolom">
                 <p class="deskripsi"><b>Informasi Pribadi</b></p>
 
-                <!-- Tabel Informasi Pribadi -->
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr>
-                        <!-- Header tabel -->
-                        <th style="border: 1px solid black; padding: 8px;">Nama</th>
-                        <th style="border: 1px solid black; padding: 8px;">NIM</th>
-                        <th style="border: 1px solid black; padding: 8px;">Program Studi</th>
-                        <th style="border: 1px solid black; padding: 8px;">Universitas</th>
-                        <th style="border: 1px solid black; padding: 8px;">Email</th>
-                    </tr><!-- .header-row -->
-                    <!-- Data tabel -->
-                    <tr>
-                        <!-- Data pribadi -->
-                        <td style="border: 1px solid black; padding: 8px;">Sheila Al Zahra Lubis</td>
-                        <td style="border: 1px solid black; padding: 8px;">220709084</td>
-                        <td style="border: 1px solid black; padding: 8px;">Perpustakaan dan Sains Informasi</td>
-                        <td style="border: 1px solid black; padding: 8px;">Universitas Sumatera Utara</td>
-                        <td style="border: 1px solid black; padding: 8px;">sheilalzahralubis@gmail.com</td><!-- .data-row -->
-                    </tr><!-- .data-row -->
-                </table><!-- .table -->
+                <table class="table-about-me">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>Program Studi</th>
+                            <th>Universitas</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sheila Al Zahra Lubis</td>
+                            <td>220709084</td>
+                            <td>Perpustakaan dan Sains Informasi</td>
+                            <td>Universitas Sumatera Utara</td>
+                            <td>sheilalzahralubis@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 
-            </div><!-- .kolom -->
-        </section><!-- #TentangSaya -->
-    </div><!-- .wrapper -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mode Gelap dan Terang (juga di halaman TentangSaya)
+            const themeButton = document.getElementById("toggle-theme");
+            themeButton.addEventListener("click", function () {
+                document.body.classList.toggle("dark-mode");
+                themeButton.textContent = document.body.classList.contains("dark-mode")
+                    ? "Mode Terang"
+                    : "Mode Gelap";
+            });
 
-</body><!-- .body -->
-</html><!-- .html -->
+            // Animasi Hover Menu (juga di halaman TentangSaya)
+            document.querySelectorAll(".menu ul li a").forEach((link) => {
+                link.addEventListener("mouseenter", () => {
+                    anime({
+                        targets: link,
+                        scale: 1.1,
+                        duration: 300,
+                        easing: "easeInOutQuad",
+                    });
+                });
+                link.addEventListener("mouseleave", () => {
+                    anime({
+                        targets: link,
+                        scale: 1,
+                        duration: 300,
+                        easing: "easeInOutQuad",
+                    });
+                });
+            });
+        });
+
+        // Search Bar Script (juga di halaman TentangSaya)
+        const menuItems = [
+            { name: "Beranda", url: "index.html" },
+            { name: "Tentang Saya", url: "TentangSaya.html" },
+            { name: "Kontak Kami", url: "KontakKami.html" },
+            { name: "Koleksi", url: "Koleksi.html" },
+        ];
+
+        const searchInput = document.getElementById("nav-search");
+        const resultsList = document.getElementById("search-results");
+
+        searchInput.addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+            resultsList.innerHTML = "";
+            if (query.length === 0) {
+                resultsList.style.display = "none";
+                return;
+            }
+            const filtered = menuItems.filter((item) =>
+                item.name.toLowerCase().includes(query)
+            );
+            if (filtered.length === 0) {
+                resultsList.innerHTML = "<li>Tidak ditemukan</li>";
+            } else {
+                filtered.forEach((item) => {
+                    const li = document.createElement("li");
+                    li.textContent = item.name;
+                    li.onclick = () => {
+                        window.location.href = item.url;
+                    };
+                    resultsList.appendChild(li);
+                });
+            }
+            resultsList.style.display = "block";
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest(".search-container")) {
+                resultsList.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
