@@ -9,9 +9,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif; /* Gunakan sans-serif sebagai fallback */
-    line-height: 1.6; /* Tambahkan line-height untuk keterbacaan */
-    color: #333; /* Warna teks default */
+    font-family: 'Open Sans', serif; /* Pastikan font tersedia di sistem atau gunakan font fallback */
 }
 
 /* Mode Gelap */
@@ -36,7 +34,7 @@ body.dark-mode a {
     cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
     border-radius: 5px; /* Membuat sudut tombol melengkung */
     transition: background-color 0.3s ease; /* Transisi halus saat hover */
-    z-index: 1000; /* Pastikan tombol di atas elemen lain */
+    
 }
 
 #toggle-theme:hover {
@@ -44,133 +42,130 @@ body.dark-mode a {
 }
 
 .wrapper {
-    width: 90%; /* Gunakan persentase untuk lebar agar responsif */
-    max-width: 1200px; /* Batasi lebar maksimum */
+    width: 1100px;
     margin: auto;
-    padding: 0 15px; /* Tambahkan padding horizontal agar konten tidak terlalu menempel di tepi */
 }
 
 .logo a {
     font-size: 50px;
-    font-weight: bold;
+    font-weight: bold; 
     float: left;
-    font-family: fantasy, sans-serif; /* Tambahkan fallback font */
+    font-family: fantasy; 
     color: #205781;
-    padding-left: 0; /* Pastikan tidak ada padding ekstra */
+}
+
+.menu {
+    float: right;
+    display: flex;
+    align-items: center;
 }
 
 nav {
-    width: 100%;
+    width: 100%; 
     display: flex;
-    justify-content: space-between; /* Untuk meratakan logo dan menu */
-    align-items: center; /* Untuk menyejajarkan item secara vertikal */
-    line-height: 80px; /* Tetap pertahankan jika ini ukuran ideal navbar */
-    position: sticky;
+    line-height: 80px;
+    position: sticky; 
     top: 0;
-    background: #F6F8D5;
-    z-index: 100; /* Z-index lebih tinggi dari cookie banner */
+    background: #F6F8D5; 
+    z-index: 1;
     border-bottom: 1px solid #205781;
-    padding: 0 20px; /* Padding untuk navbar */
-}
-
-nav .wrapper { /* Pastikan wrapper di dalam nav tidak membuat dobel margin */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
-    margin: 0;
-    padding: 0;
+}
+
+nav ul li { 
+    /* float: left;  dihapus karena sudah pakai flex */
 }
 
 nav ul li a {
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 16px;
-    text-decoration: none;
-    transition: text-decoration 0.3s ease, transform 0.3s ease; /* Tambahkan transisi */
+   color: black; 
+   font-weight: bold;
+   text-align: center;
+   padding: 0 16px; 
+   text-decoration: none; 
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
-    transform: scale(1.05); /* Efek zoom sedikit lebih halus */
+   text-decoration: underline; 
+   transform: scale(1.1); /* Efek zoom saat hover */
 }
 
 /* Section styling */
 section {
-    margin-bottom: 50px;
-    padding: 40px 0; /* Tambahkan padding atas/bawah */
-    display: flex;
-    flex-wrap: wrap; /* Izinkan wrapping elemen di dalam section */
-    align-items: center;
-    gap: 30px; /* Tingkatkan jarak antar elemen */
+   margin-bottom: 50px; 
+   display: flex; 
+   align-items: center; 
+   gap: 20px; 
 }
 
-#home {
-    min-height: calc(100vh - 80px); /* Kurangi tinggi navbar dari 100vh */
-    justify-content: center; /* Pusatkan konten horizontal */
-    text-align: left; /* Teks default kembali ke kiri */
-}
-
-/* Styling untuk gambar */
+/* Styling untuk gambar agar tidak lengket dengan header */
 .library-image {
-    width: 100%; /* Lebar 100% dari parent */
-    max-width: 500px; /* Batasi lebar maksimum */
-    height: auto;
-    margin-top: 0; /* Hapus margin-top jika sudah ada padding di section */
-    flex-shrink: 0; /* Jangan biarkan gambar menyusut */
+   width: 500px; 
+   height: auto; 
+   margin-top: 20px; 
 }
 
 /* Kolom styling */
 .kolom {
-    flex: 1; /* Biarkan kolom mengambil ruang yang tersedia */
-    min-width: 300px; /* Batasi lebar minimum kolom */
-    margin-top: 0;
-    margin-bottom: 0;
+   margin-top: 50px; 
+   margin-bottom: 50px; 
 }
 
 /* Deskripsi styling */
 .kolom .deskripsi {
-    font-size: 45px;
-    font-weight: bold;
-    color: #205781;
-    margin-bottom: 20px;
+   font-size: 45px; 
+   font-weight: bold;
+   color: #205781;
 }
 
 /* Heading styling */
 h2 {
-    font-weight: bold;
-    font-size: 28px; /* Ukuran h2 lebih besar */
-    margin-bottom: 20px;
-    color: #205781;
+   font-weight: bold; 
+   font-size: 20px; 
+   margin-bottom: 20px;
+   color: #205781;
 }
 
-/* Styling untuk kutipan */
+/* Styling untuk kutipan agar tidak menjadi link saat di klik */
 .quote {
-    font-size: 18px;
-    line-height: 1.8; /* Tingkatkan line-height */
-    margin-top: 20px;
+   font-size: 18px; 
+   line-height: 1.6; 
 }
 
 /* Formulir styling (tambahan untuk KontakSaya.html) */
 .form-group {
-    margin-bottom: 15px; /* Beri jarak antar elemen form */
+   margin-bottom: 15px; /* Beri jarak antar elemen form */
+}
+
+label {
+   display:block; 
+   font-weight:bold;
+   margin-bottom:.5em;
+}
+
+input, textarea {
+   width :100%;
+   padding :10px;
+}
+
+/* Styling form kontak */
+form {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
     font-weight: bold;
-    margin-bottom: .5em;
+    margin-bottom: 6px;
     color: #205781; /* Sesuaikan dengan warna tema Anda */
-}
-
-body.dark-mode label {
-    color: #ff9800; /* Warna label di mode gelap */
 }
 
 input[type="email"],
@@ -181,20 +176,9 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', serif;
     transition: border-color 0.3s ease;
-    background-color: #fff; /* Pastikan background putih di mode terang */
-    color: #333; /* Warna teks default */
 }
-
-body.dark-mode input[type="email"],
-body.dark-mode input[type="text"],
-body.dark-mode textarea {
-    background-color: #333; /* Warna background input di mode gelap */
-    border-color: #555;
-    color: white;
-}
-
 
 input[type="email"]:focus,
 input[type="text"]:focus,
@@ -234,14 +218,6 @@ button.submit:hover {
     width: 150px;
     transition: width 0.4s cubic-bezier(.68,-0.55,.27,1.55);
     outline: none;
-    background-color: #fff; /* Pastikan background putih di mode terang */
-    color: #333;
-}
-
-body.dark-mode #nav-search {
-    background-color: #333;
-    border-color: #555;
-    color: white;
 }
 
 #nav-search:focus {
@@ -265,13 +241,6 @@ body.dark-mode #nav-search {
     display: none;
     max-height: 180px;
     overflow-y: auto;
-    color: #333; /* Warna teks default untuk hasil pencarian */
-}
-
-body.dark-mode .search-results {
-    background: #333;
-    border-color: #555;
-    color: white;
 }
 
 .search-results li {
@@ -285,19 +254,64 @@ body.dark-mode .search-results {
     color: #fff;
 }
 
+.wrapper {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-container {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .library-image {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .kolom .deskripsi {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .logo a {
+        font-size: 36px;
+    }
+} /* Penutup media query utama */
+
 /* --- Styling Bagian Poster Event Lomba --- */
 #event-lomba {
-    padding: 60px 0; /* Padding lebih banyak */
+    padding: 40px 0;
     text-align: center;
 }
 
 #event-lomba .kolom {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 0; /* Override margin-top default kolom */
+    margin-bottom: 0; /* Override margin-bottom default kolom */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -313,9 +327,10 @@ body.dark-mode #event-lomba h2 {
     color: #ff9800; /* Warna judul di mode gelap */
 }
 
+/* Styling baru untuk deskripsi event lomba yang bold dan agak besar */
 .deskripsi-event-bold {
-    font-size: 1.15em;
-    font-weight: bold;
+    font-size: 1.15em; /* Agak lebih besar dari default */
+    font-weight: bold; /* Bold */
     margin-bottom: 30px;
     max-width: 800px;
     line-height: 1.6;
@@ -329,8 +344,8 @@ body.dark-mode .deskripsi-event-bold {
 .poster-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-wrap: wrap; /* Agar poster bisa wrap ke baris baru di layar kecil */
+    gap: 30px; /* Jarak antar poster */
     margin-top: 20px;
 }
 
@@ -343,23 +358,31 @@ body.dark-mode .deskripsi-event-bold {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-body.dark-mode .poster-link {
-    border-color: #444;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
 .poster-link:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Sedikit naik saat di-hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat di-hover */
 }
 
 .poster-image {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-    max-width: 300px;
-    max-height: 450px;
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    max-width: 300px; /* Lebar maksimal setiap poster */
+    max-height: 450px; /* Tinggi maksimal setiap poster */
+}
+
+/* Responsive adjustments for posters */
+@media screen and (max-width: 768px) {
+    .poster-container {
+        flex-direction: column; /* Poster menjadi vertikal di layar kecil */
+        align-items: center;
+    }
+
+    .poster-image {
+        max-width: 80%; /* Gambar poster sedikit lebih kecil di HP */
+        max-height: auto;
+    }
 }
 
 /* --- Styling Cookie Banner Baru --- */
@@ -588,26 +611,27 @@ body.dark-mode .cookie-modal-content .close-modal:hover {
     background-color: #1a4463;
 }
 
+
 /* --- Styling Tabel Tentang Saya --- */
 .table-about-me {
     width: 100%;
-    border-collapse: separate;
+    border-collapse: separate; /* Gunakan separate untuk border-radius */
     border-spacing: 0;
     margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    border-radius: 8px; /* Sudut melengkung */
+    overflow: hidden; /* Penting untuk border-radius di tabel */
 }
 
 .table-about-me th,
 .table-about-me td {
     padding: 12px 15px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0; /* Garis pemisah antar baris */
     text-align: left;
 }
 
 .table-about-me th {
-    background-color: #205781;
+    background-color: #205781; /* Warna header selaras dengan logo */
     color: white;
     font-weight: bold;
     text-transform: uppercase;
@@ -615,16 +639,16 @@ body.dark-mode .cookie-modal-content .close-modal:hover {
 }
 
 .table-about-me tr:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: #f8f8f8; /* Warna latar belakang baris genap */
 }
 
 .table-about-me tr:hover {
-    background-color: #e6f7ff;
+    background-color: #e6f7ff; /* Warna hover pada baris */
     transition: background-color 0.3s ease;
 }
 
 .table-about-me tr:last-child td {
-    border-bottom: none;
+    border-bottom: none; /* Hilangkan border di baris terakhir */
 }
 
 /* Styling untuk mode gelap pada tabel */
@@ -633,7 +657,7 @@ body.dark-mode .table-about-me {
 }
 
 body.dark-mode .table-about-me th {
-    background-color: #ff9800;
+    background-color: #ff9800; /* Warna header di mode gelap */
     color: #121212;
 }
 
@@ -648,238 +672,4 @@ body.dark-mode .table-about-me tr:nth-child(even) {
 
 body.dark-mode .table-about-me tr:hover {
     background-color: #444;
-}
-
-/* --- Media Queries untuk Responsifitas --- */
-
-/* Untuk layar yang lebih kecil dari 992px (seperti tablet ke bawah) */
-@media screen and (max-width: 992px) {
-    .logo a {
-        font-size: 40px;
-    }
-
-    nav ul li a {
-        padding: 0 12px;
-    }
-
-    #nav-search {
-        width: 120px;
-        font-size: 14px;
-    }
-
-    #nav-search:focus {
-        width: 180px;
-    }
-
-    section {
-        flex-direction: column; /* Ubah layout menjadi kolom */
-        text-align: center;
-        gap: 20px; /* Kurangi sedikit jarak */
-    }
-
-    .library-image {
-        max-width: 400px; /* Sedikit lebih kecil di tablet */
-    }
-
-    .kolom .deskripsi {
-        font-size: 38px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    .quote {
-        font-size: 16px;
-    }
-
-    .poster-image {
-        max-width: 250px; /* Poster sedikit lebih kecil */
-        max-height: auto;
-    }
-}
-
-/* Untuk layar yang lebih kecil dari 768px (seperti mobile) */
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Navbar menjadi kolom */
-        align-items: flex-start;
-        line-height: normal; /* Biarkan line-height normal */
-        padding: 15px 20px; /* Padding lebih banyak */
-    }
-
-    nav .wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .logo {
-        margin-bottom: 10px; /* Jarak antara logo dan menu di mobile */
-        float: none; /* Hapus float */
-        width: 100%;
-        text-align: center; /* Pusatkan logo */
-    }
-
-    .logo a {
-        font-size: 36px;
-        float: none;
-    }
-
-    .menu {
-        flex-direction: column;
-        width: 100%;
-        align-items: center; /* Pusatkan menu item */
-    }
-
-    nav ul {
-        flex-direction: column; /* Menu item menjadi kolom */
-        width: 100%;
-        margin-top: 10px;
-        gap: 8px; /* Jarak antar menu item */
-    }
-
-    nav ul li {
-        width: 100%; /* Lebarkan item menu */
-    }
-
-    nav ul li a {
-        padding: 10px 0;
-        display: block; /* Agar link memenuhi lebar */
-        border-bottom: 1px solid #eee; /* Garis pemisah antar menu item */
-    }
-
-    nav ul li:last-child a {
-        border-bottom: none; /* Hapus border di item terakhir */
-    }
-
-    .search-container {
-        margin-left: 0;
-        margin-top: 15px; /* Jarak dari menu */
-        width: 100%;
-        text-align: center; /* Pusatkan search bar */
-    }
-
-    #nav-search {
-        width: 80%; /* Lebar search bar di mobile */
-        max-width: 250px; /* Batasi lebar maksimum */
-        font-size: 15px;
-    }
-
-    #nav-search:focus {
-        width: 90%;
-        max-width: 280px;
-    }
-
-    .search-results {
-        left: 50%;
-        transform: translateX(-50%); /* Pusatkan hasil pencarian */
-        width: 80%;
-        max-width: 280px;
-    }
-
-    #home {
-        padding: 30px 0;
-        min-height: auto; /* Hapus min-height untuk fleksibilitas di mobile */
-    }
-
-    .library-image {
-        max-width: 300px;
-        margin-bottom: 20px;
-    }
-
-    .kolom .deskripsi {
-        font-size: 28px;
-        margin-bottom: 15px;
-    }
-
-    h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    .quote {
-        font-size: 15px;
-    }
-
-    #event-lomba h2 {
-        font-size: 28px;
-    }
-
-    .deskripsi-event-bold {
-        font-size: 1em;
-        margin-bottom: 20px;
-    }
-
-    .poster-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .poster-image {
-        max-width: 70%; /* Lebih kecil lagi di mobile */
-        max-height: auto;
-    }
-
-    /* Cookie banner dan modal di mobile */
-    .cookie-banner-content {
-        align-items: center;
-        text-align: center;
-    }
-
-    .cookie-banner-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .cookie-banner button {
-        width: 100%;
-        padding: 12px 15px;
-    }
-
-    .cookie-modal-content {
-        padding: 20px;
-    }
-
-    .cookie-modal-content h3 {
-        font-size: 1.5em;
-    }
-}
-
-/* Untuk layar yang sangat kecil (misal iPhone 5/SE) */
-@media screen and (max-width: 480px) {
-    .logo a {
-        font-size: 32px;
-    }
-
-    .kolom .deskripsi {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    .quote {
-        font-size: 14px;
-    }
-
-    #event-lomba h2 {
-        font-size: 24px;
-    }
-
-    .poster-image {
-        max-width: 85%; /* Sedikit lebih besar di layar sangat kecil agar lebih terlihat */
-    }
-
-    #nav-search {
-        width: 90%;
-    }
-    #nav-search:focus {
-        width: 95%;
-    }
-    .search-results {
-        width: 90%;
-    }
 }
