@@ -22,6 +22,7 @@
             padding: 10px;
             cursor: pointer;
             border-radius: 5px;
+            z-index: 1000; /* Pastikan tombol di atas elemen lain */
         }
 
         /* Search Bar Styling */
@@ -88,7 +89,8 @@
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="TentangSaya.html">Tentang Saya</a></li>
                     <li><a href="KontakKami.html">Kontak Kami</a></li>
-                    <li><a href="Koleksi.html">Koleksi</a></li> </ul>
+                    <li><a href="Koleksi.html">Koleksi</a></li>
+                </ul>
                 <div class="search-container">
                     <input type="text" id="nav-search" placeholder="Cari menu..." autocomplete="off" />
                     <ul id="search-results" class="search-results"></ul>
@@ -111,7 +113,7 @@
         <section id="event-lomba">
             <div class="kolom">
                 <h2>Event Lomba Perpustakaan</h2>
-                <p class="deskripsi-event">Ikuti berbagai event dan lomba menarik yang diselenggarakan oleh perpustakaan kami! Klik poster di bawah untuk informasi lebih lanjut.</p>
+                <p class="deskripsi-event-bold"><b>Ikuti berbagai event dan lomba menarik yang diselenggarakan oleh perpustakaan kami! Klik poster di bawah untuk informasi lebih lanjut.</b></p>
                 <div class="poster-container">
                     <a href="https://www.instagram.com/p/DKSDInyTDC3/?igsh=MWtwbXl2ZzI4Mjl2Mw==" target="_blank" class="poster-link">
                         <img src="EvenPoster1.JPEG.jpeg" alt="Poster Lomba 1" class="poster-image">
@@ -240,48 +242,56 @@
                 resultsList.style.display = "none";
             }
         });
+
+        // --- Mulai Cookie Script Baru (Diselaraskan dengan warna website) ---
         function setCookie(name, value, days) {
-            var expires = "";
+            let expires = "";
             if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days*24*60*60*1000));
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
                 expires = "; expires=" + date.toUTCString();
             }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
         }
+
         function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0;i < ca.length;i++) {
-                var c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
             }
             return null;
         }
-        function acceptCookie() {
+
+        function acceptAllCookies() {
             setCookie('cookieConsent', 'accepted', 365);
             setCookie('analytics', 'yes', 365);
             setCookie('ads', 'yes', 365);
             document.getElementById('cookie-banner').classList.add('hide');
         }
-        function openCookieModal() {
+
+        function openCookiePreferences() {
             document.getElementById('cookie-modal').classList.add('active');
-            // Set checkbox sesuai cookie
+            // Set checkbox sesuai cookie yang ada
             document.getElementById('analytics-cookie').checked = getCookie('analytics') !== 'no';
             document.getElementById('ads-cookie').checked = getCookie('ads') !== 'no';
         }
-        function closeCookieModal() {
+
+        function closeCookiePreferences() {
             document.getElementById('cookie-modal').classList.remove('active');
         }
-        document.getElementById('cookieForm').onsubmit = function(e) {
+
+        document.getElementById('cookie-form').onsubmit = function(e) {
             e.preventDefault();
             setCookie('cookieConsent', 'custom', 365);
             setCookie('analytics', document.getElementById('analytics-cookie').checked ? 'yes' : 'no', 365);
             setCookie('ads', document.getElementById('ads-cookie').checked ? 'yes' : 'no', 365);
-            closeCookieModal();
+            closeCookiePreferences();
             document.getElementById('cookie-banner').classList.add('hide');
         };
+
         window.onload = function() {
             if (!getCookie('cookieConsent')) {
                 document.getElementById('cookie-banner').classList.remove('hide');
@@ -289,45 +299,51 @@
                 document.getElementById('cookie-banner').classList.add('hide');
             }
         };
-        // Tutup modal jika klik di luar modal
-        document.getElementById('cookie-modal').onclick = function(e) {
-            if (e.target === this) closeCookieModal();
-        };
+
+        // Tutup modal jika klik di luar modal konten
+        document.getElementById('cookie-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCookiePreferences();
+            }
+        });
+        // --- Akhir Cookie Script Baru ---
     </script>
+
     <div id="cookie-banner" class="cookie-banner">
-    <div class="cookie-banner-content">
-        <span>
-            Website ini menggunakan cookies untuk meningkatkan pengalaman Anda.
-        </span>
-        <div class="cookie-banner-actions">
-            <button class="accept" onclick="acceptCookie()">Terima</button>
-            <button class="manage" onclick="openCookieModal()">Kelola Cookie</button>
+        <div class="cookie-banner-content">
+            <span>
+                Website ini menggunakan cookies untuk meningkatkan pengalaman Anda.
+            </span>
+            <div class="cookie-banner-actions">
+                <button class="accept-all" onclick="acceptAllCookies()">Terima Semua</button>
+                <button class="manage-preferences" onclick="openCookiePreferences()">Kelola Preferensi</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="cookie-modal" class="cookie-modal">
-    <div class="cookie-modal-content">
-        <h3>Kelola Preferensi Cookie</h3>
-        <form id="cookieForm">
-            <label>
-                <span>Cookie Fungsional (wajib)</span>
-                <input type="checkbox" checked disabled>
-            </label>
-            <label>
-                <span>Cookie Analitik</span>
-                <input type="checkbox" id="analytics-cookie">
-            </label>
-            <label>
-                <span>Cookie Iklan</span>
-                <input type="checkbox" id="ads-cookie">
-            </label>
-            <div style="margin-top:18px;">
-                <button type="submit" class="save">Simpan</button>
-                <button type="button" class="close" onclick="closeCookieModal()">Batal</button>
-            </div>
-        </form>
+    <div id="cookie-modal" class="cookie-modal">
+        <div class="cookie-modal-content">
+            <h3>Kelola Preferensi Cookie</h3>
+            <form id="cookie-form">
+                <p>Kami menggunakan cookie untuk memastikan fungsionalitas inti website dan untuk menganalisis kinerja. Anda dapat memilih jenis cookie yang ingin Anda izinkan.</p>
+                <label class="cookie-option">
+                    <span>Cookie Fungsional (wajib)</span>
+                    <input type="checkbox" checked disabled>
+                </label>
+                <label class="cookie-option">
+                    <span>Cookie Analitik</span>
+                    <input type="checkbox" id="analytics-cookie">
+                </label>
+                <label class="cookie-option">
+                    <span>Cookie Iklan</span>
+                    <input type="checkbox" id="ads-cookie">
+                </label>
+                <div class="modal-actions">
+                    <button type="submit" class="save-preferences">Simpan Preferensi</button>
+                    <button type="button" class="close-modal" onclick="closeCookiePreferences()">Batal</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </body>
 </html>
